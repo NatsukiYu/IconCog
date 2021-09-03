@@ -6,7 +6,6 @@ import discord
 from discord.ext import commands
 from discord_slash import cog_ext, SlashContext
 
-from .factory import ImageFactory
 from dataclasses import dataclass
 from typing import Callable
 from PIL.Image import Image
