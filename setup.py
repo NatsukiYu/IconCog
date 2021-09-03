@@ -5,7 +5,7 @@ with open('requirements.txt', 'r') as fp:
 
 setup(
     name='IconCog',
-    version='1.0.0',
+    version='1.0.1',
     license='MIT',
     description='Send Husan.',
     author='@natsuki__yu',
