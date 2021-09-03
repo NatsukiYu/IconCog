@@ -1,0 +1,104 @@
+= IconCog
+夏木 悠 <@natsuki__yu>
+v1.0.0 2021-09-03
+
+:toc:
+:toc-title: 目次
+:icons: font
+:hardbreaks:
+
+++++
+<link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.1.0/css/font-awesome.min.css">
+++++
+
+// ------------------------------------------ //
+
+画像に文字を書き込んで投稿します．
+
+== 操作方法
+
+`/icon text` と送信すると，textと書かれた画像が投稿されます．
+
+== 必要な権限
+
+Send Messages:: メッセージを送信するために使用します．
+Attach Files:: 生成した画像をメッセージに添付するために使用します．
+
+[cols="<,<,<", frame=none, grid=none]
+|===
+a|.GENERAL PERMISSIONS
+* [ ] Administrator
+* [ ] View Audit Log
+* [ ] View Server Insights
+* [ ] Manage Server
+* [ ] Manage Roles
+* [ ] Manage Channels
+* [ ] Kick Members
+* [ ] Ban Members
+* [ ] Create Instant Invite
+* [ ] Change Nickname
+* [ ] Manage Nicknames
+* [ ] Manage Emojis
+* [ ] Manage Webhooks
+
+a|.TEXT PERMISSIONS
+* [ ] View Channels
+* [x] Send Messages
+* [ ] Send TTS Messages
+* [ ] Manage Messages
+* [ ] Embed Links
+* [x] Attach Files
+* [ ] Read Message History
+* [ ] Mention Everyone
+* [ ] Use External Emojis
+* [ ] Add Reactions
+* [ ] Use Slash Commands
+
+a|.VOICE PERMISSIONS
+* [ ] Connect
+* [ ] Speak
+* [ ] Video
+* [ ] Mute Members
+* [ ] Deafen Members
+* [ ] Move Members
+* [ ] Use Voice Activity
+* [ ] Priority Speaker
+|===
+
+== 導入方法
+
+:domain: github.com
+:account: NatsukiYu
+:project: IconCog
+
+次のいずれかのコマンドでインストールすることができます．
+
+* `pip install git+https://{domain}/{account}/{project}.git`
+* `pip install git+ssh://{domain}/{account}/{project}.git`
+
+このCogを読み込む前に，Cogの設定を済ませておく必要があります．
+以下のように設定を行い，Cogを読み込んでください．
+
+.example/main.py
+[source,python]
+----
+include::./example/main.py[]
+----
+<1> 画像生成用のインスタンスを作成
+<2> BotにCogの設定を与える
+<3> Cogを読み込む
+<4> Botを実行する
+
+== 詳細な設定
+=== guild_ids
+Slash CommandsはデフォルトでGlobal Commandsとして扱われます．
+Guild Commandsとしたいときは，環境変数 `guild_ids` を設定してください．
+例． `guild_ids=11111111,22222222`
+
+また，コマンド名(`/icon`)は環境変数 `slash_icon` で変更することが可能です．
+
+[IMPORTANT]
+====
+`import icon_cog` の時点で環境変数が参照されます．
+`dotenv` などはインポートの前に行ってください．
+====
